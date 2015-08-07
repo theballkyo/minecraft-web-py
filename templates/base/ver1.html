@@ -1,0 +1,287 @@
+<!doctype html>
+{% load static %}
+{% load timetags %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="ZoneGamer Minecraft Server Version 1.8.8 - Free to play!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ZoneGamer Minecraft Version 1.8.8{% endblock %}</title>
+
+    <!-- Page styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
+    <link rel="stylesheet" href="{% static "styles.css?ver=0912" %}">
+    <link rel="stylesheet" href="{% static "item.css" %}">
+    <link rel="shortcut icon" href="{% static "images/icon.ico" %}">
+    <style>
+    .fb_iframe_widget_fluid span, iframe.fb_ltr { width: 100% !important; }
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <img class="android-logo-image" src="{% static "images/android-logo.png" %}">
+          </span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field" />
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url "portal:index" %}">Home</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url "user:create" %}">Register</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url "portal:maps" %}">Maps</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url "portal:index" %}#how-to-play">How to play</a>
+            </nav>
+          </div>
+          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <li disabled class="mdl-menu__item">Command</li>
+            <li disabled class="mdl-menu__item">Donate</li>
+          </ul>
+          <span class="android-mobile-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png">
+          </span>
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <img class="android-logo-image" src="{% static 'images/android-logo-white.png' %}">
+        </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="{% url "portal:index" %}">Home</a>
+          <a class="mdl-navigation__link" href="{% url "user:create" %}">Register</a>
+          <a class="mdl-navigation__link" href="{% url "portal:maps" %}">Maps</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">How to play</span>
+          <a class="mdl-navigation__link" href="{% url "portal:index" %}#how-to-play">Newbie</a>
+          <a class="mdl-navigation__link" href="#">Command list</a>
+        </nav>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        <a name="top"></a>
+        {% block head%}
+        <div class="android-be-together-section mdl-typography--text-center">
+          <div class="android-font android-slogan">Welcome to ZoneGamer</div>
+          <div class="android-font android-sub-slogan">ZoneGamer Minecraft Server 1.8.8 Free to play</div>
+          <div class="andriod-font android-create-character">
+          </div>
+
+          <a href="#screens">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        {% endblock %}
+        {% block content %}
+        <div class="android-more-section">
+          <div class="android-section-title mdl-typography--display-1-color-contrast"><a name="how-to-play">How to play</a></div>
+          <div class="android-card-container mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="{% static "images/more-from-1.png" %}">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">1.Register Account</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">Register Account to play game or you can register in game <br>
+                  type: /register [youpass] [youpass]<br>
+                  in first time.</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{% url 'user:create' %}">
+                   Register now
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="{% static "images/more-from-4.png" %}">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">2.Download Game</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">Donwload Minecraft or use you Minecraft Launcher to join game (game version 1.8.8)</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="http://mc-sv1.enjoyprice.in.th/files/mc.rar">
+                   Download now
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="{% static "images/more-from-2.png" %}">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">3.Play Game!</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">Launch you game client and enjoy in my server.<br>When you join game <br>
+                type: /login [youpass]<br>
+                 to login</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   IP: mc-sv1.enjoyprice.in.th
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Server status</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">IP : mc-sv1.enjoyprice.in.th
+
+                <p></p>
+                  {% if status %}
+                  Player online: {{ status.players.online}} / 100 <br>
+                  Player list: 
+                  {% if query.players.names %}
+                    {{query.players.names|join:", "}} 
+                  {% else %}
+                    No player online.
+                  {% endif %}
+                  {% else %}
+                    Server close !.
+                  {% endif %}
+                </span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   IP: mc-sv1.enjoyprice.in.th
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{% url 'portal:maps' %}">
+                   View maps
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Player stats</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light">
+                {% for m in top_m %}
+                  <b class="android-link mdl-button mdl-js-button" onclick="location.href='user/view/{{ m.name}}'">
+                    <span style="width: 150px;display: inline-block; text-align:left;">{{ m.name }}</span>
+                    <span style="display:inline-block;text-align:right;width:100px;">{{ m.money}} Zm |</span>
+                    <span style="display:inline-block"> last played {{ user|last_login:m.name|print_timestamp }}</span>
+                  </b>
+                  <br>
+                {% endfor %}
+
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <div class="android-card-container mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">Message to us.</h4>
+              </div>
+              <div class="mdl-card__supporting-text" style="width:96%">
+                <div class="fb-comments" data-href="http://mc-sv1.enjoyprice.in.th/" data-width="100%" data-numposts="20" data-order-by="reverse_time"></div>
+              </div>
+            </div>
+          </div>
+          <div class="android-section-title mdl-typography--display-1-color-contrast">News</div>
+          <div class="android-card-container mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">News ...</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+        <footer class="android-footer mdl-mega-footer mdl-color--grey-900">
+          <div class="mdl-mega-footer--top-section">
+            <div class="mdl-mega-footer--left-section">
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+            </div>
+            <div class="mdl-mega-footer--right-section">
+              <a class="mdl-typography--font-light" href="#top">
+                Back to Top
+                <i class="material-icons">expand_less</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">ZoneGamer: © 2015 By Theballkyo</p>
+          </div>
+
+          <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+              Versions
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+              <li class="mdl-menu__item">Minecraft 1.8.8</li>
+              <li class="mdl-menu__item">Website 0.9</li>
+            </ul>
+            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    <a href="#" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Contact us</a>
+    <script src="{% static "material.min.js" %}"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

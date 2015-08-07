@@ -1,0 +1,42 @@
+{% extends "base/ver1.html" %}
+{% load static %}
+{% block content %}
+<div class="android-more-section">
+  <div class="android-card-container mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" style="height:450px">
+      <div class="mdl-card__media">
+        <img src="http://avatar.yourminecraftservers.com/avatar/source/minecraft/background/starburst/bgParams/%23111111,%23cccccc/notFound/steve/figure/classic/figureSize/60/borderSize/4/borderColor/%23000000/canvasSize/256/{{ username }}.png" style="width:100%">
+      </div>
+      <div class="mdl-card__title">
+         <h4 class="mdl-card__title-text">{{ username}}</h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+      </div>
+      <div class="mdl-card__actions">
+         <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="#">
+           Nope
+           <i class="material-icons">chevron_right</i>
+         </a>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--8-col-phone mdl-card mdl-shadow--3dp">
+      <div class="mdl-card__title">
+         <h4 class="mdl-card__title-text">Inv_survival {{ username}}</h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <span class="mdl-typography--font-light mdl-typography--subhead">
+            {% for inv in inv_datas %}
+              {{inv.name}} <img src={% static "images/d.gif" %} class="{{inv.class}}"><br>
+            {% endfor %}
+        </span>
+      </div>
+      <div class="mdl-card__actions">
+         <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="#">
+           Nope
+           <i class="material-icons">chevron_right</i>
+         </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
