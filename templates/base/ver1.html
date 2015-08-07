@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
-    <link rel="stylesheet" href="{% static "styles.css?ver=0912" %}">
+    <link rel="stylesheet" href="{% static "styles.css?ver=0916" %}">
     <link rel="stylesheet" href="{% static "item.css" %}">
     <link rel="shortcut icon" href="{% static "images/icon.ico" %}">
     <style>
@@ -204,18 +204,27 @@
               <div class="mdl-card__title">
                  <h4 class="mdl-card__title-text">Player stats</h4>
               </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light">
-                {% for m in top_m %}
-                  <b class="android-link mdl-button mdl-js-button" onclick="location.href='user/view/{{ m.name}}'">
-                    <span style="width: 150px;display: inline-block; text-align:left;">{{ m.name }}</span>
-                    <span style="display:inline-block;text-align:right;width:100px;">{{ m.money}} Zm |</span>
-                    <span style="display:inline-block"> last played {{ user|last_login:m.name|print_timestamp }}</span>
-                  </b>
-                  <br>
-                {% endfor %}
+              <div class="player-stats mdl-card__supporting-text mdl-color-text--grey-600">
+                <table style="width:100%" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                  <thead>
+                    <tr>
+                      <th style="width:35%" class="mdl-data-table__cell--non-numeric">Name</th>
+                      <th style="width:15%">Money (Zm)</th>
+                      <th style="width:50%" class="mdl-data-table__cell--non-numeric">Last played</th>
+                    </tr>
+                  </thead>
 
-                </span>
+                  <tbody>
+                    {% for m in top_m %}
+                    <tr onclick="location.href='{% url "user:profile" m.name %}'">
+                      <td class="mdl-data-table__cell--non-numeric">{{ m.name }}</td>
+                      <td>{{ m.money|floatformat:2 }}</td>
+                      <td class="mdl-data-table__cell--non-numeric">{{ user|last_login:m.name|print_timestamp }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+
+                </table>
               </div>
             </div>
 

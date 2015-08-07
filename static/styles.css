@@ -23,7 +23,7 @@
 
 body {
   margin: 0;
-  font-family: "And Black";
+  font-family: "Roboto";
 }
 
 /* Disable ugly boxes around images in IE10 */
@@ -571,4 +571,14 @@ a img{
     list-style-type: none;
     padding-left: 20px;
     line-height: 28px;
+}
+.player-stats {
+  width: 97%;
+}
+.player-stats th{
+  font-size: 16px;
+}
+.player-stats td{
+  font-size: 16px;
+  cursor: pointer;
 }

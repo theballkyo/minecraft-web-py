@@ -13,8 +13,7 @@ def index(request):
         status = None
         query = None
     user = Account.objects.all()
-    # print(user.get(username='theballkyo').password)
-    top_m = Fe.objects.exclude(name__contains='-').order_by('name')
+    top_m = Fe.objects.order_by('-money').exclude(name__contains='-')
     return render(request, 'portal/index.html', {'status': status, 'query': query, 'top_m': top_m, 'user': user})
 
 def maps(request):
