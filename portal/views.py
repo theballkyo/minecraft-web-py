@@ -18,3 +18,4 @@ def index(request):
 
 def maps(request):
     return render(request, 'portal/maps.html')
+    
