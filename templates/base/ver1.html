@@ -12,8 +12,9 @@
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>
     <link rel="stylesheet" href="{% static "material.min.css" %}">
-    <link rel="stylesheet" href="{% static "styles.css?ver=0917" %}">
+    <link rel="stylesheet" href="{% static "styles.css?ver=0919" %}">
     <link rel="stylesheet" href="{% static "item.css" %}">
     <link rel="shortcut icon" href="{% static "images/icon.ico" %}">
 
@@ -206,7 +207,7 @@
                  <h4 class="mdl-card__title-text">Player stats</h4>
               </div>
               <div class="player-stats mdl-card__supporting-text mdl-color-text--grey-600">
-                <table style="width:100%" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <table id="stats" style="width:100%" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                   <thead>
                     <tr>
                       <th style="width:35%" class="mdl-data-table__cell--non-numeric">Name</th>
@@ -291,6 +292,7 @@
     </div>
     <a href="#" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Contact us</a>
     <script src="{% static "material.min.js" %}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.js"></script>
     {% block script %}
     {% endblock %}
   </body>
